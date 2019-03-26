@@ -30,5 +30,13 @@ public class BusStopTest {
         assertEquals(1,busStop.countQueue());
     }
 
+    @Test
+    public void canRemovePassenger(){
+        busStop.addPassenger(person);
+        busStop.addPassenger(person);
+        busStop.removePerson();
+        assertEquals(1, busStop.countQueue());
+    }
+
 
 }
