@@ -25,8 +25,21 @@ public class Bus {
         return this.passengers.size();
     }
 
-    public void pickUpPassenger(Person person){
-        this.passengers.add(person);
+    public boolean checkCapacity(){
+     int count = this.passengerCount();
+     if (count < this.capacity){
+         return true;
+     } else {
+         return false;
+     }
     }
+
+    public void pickUpPassenger(Person person){
+        if(this.checkCapacity()) {
+            this.passengers.add(person);
+        }
+    }
+
+
 
 }

@@ -30,8 +30,22 @@ public class BusTest {
     }
 
     @Test
-    public void canPickUpAPassenger(){
+    public void canPickUpAPassengerPositive(){
         bus.pickUpPassenger(person);
         assertEquals(1, bus.passengerCount());
     }
+    @Test
+    public void canPickUpAPassengerNegative(){
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person);
+        bus.pickUpPassenger(person); 
+        bus.pickUpPassenger(person);
+        assertEquals(8, bus.passengerCount());
+    }
+
 }
