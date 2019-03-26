@@ -6,22 +6,32 @@ import static junit.framework.TestCase.assertEquals;
 public class BusTest {
     private Bus bus;
     private Person person;
+
     @Before
 
-    public void before(){
-        bus = new Bus("Brigadoon",8);
+    public void before() {
+        bus = new Bus("Brigadoon", 8);
         person = new Person("Shug");
     }
+
     @Test
-    public void hasDestination(){
-    assertEquals("Brigadoon", bus.getDestination());
+    public void hasDestination() {
+        assertEquals("Brigadoon", bus.getDestination());
     }
-//    @Test
-//    public void hasCapacity{
-//
-//    }
-//    @Test
-//    public void hasPassengers(){
-//
-//    }
+
+    @Test
+    public void hasCapacity() {
+        assertEquals(8, bus.getCapacity());
+    }
+
+    @Test
+    public void startsWithNoPassengers() {
+        assertEquals(0, bus.passengerCount());
+    }
+
+    @Test
+    public void canPickUpAPassenger(){
+        bus.pickUpPassenger(person);
+        assertEquals(1, bus.passengerCount());
+    }
 }
